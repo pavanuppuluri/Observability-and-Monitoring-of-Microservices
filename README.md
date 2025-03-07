@@ -122,3 +122,15 @@ Below are the key metrics to visualize and monitor system performance:
    - **Description:** Counts total HTTP requests received by the server.
    - **Visualization:** Bar chart showing request count per endpoint.
 
+<br>
+
+In the context of Prometheus and Grafana, **"scrape" means collecting or pulling metrics from a target system at a specified interval**.
+
+<br>
+
+**Scraping in Prometheus**
+- Prometheus scrapes (fetches) metrics from configured endpoints (like a Spring Boot microservice).
+- It makes an HTTP request to the endpoint (e.g., /actuator/prometheus) and stores the collected data.
+- The frequency of scraping is defined in scrape_interval in prometheus.yml.
+
+
