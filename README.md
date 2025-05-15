@@ -33,7 +33,34 @@ In other words, Monitoring is about **collecting data** and Observability is abo
 <img width="605" alt="image" src="https://github.com/user-attachments/assets/d1821747-28ba-4ac3-b8d2-d88c370418b4" />
 
 
-Grafana is an open-source data visualization and monitoring tool that allows you to analyze and visualize metrics from various sources like databases, logs, and cloud services. It is commonly used with time-series databases like Prometheus, InfluxDB, and Elasticsearch to monitor applications, infrastructure, and services in real-time.
+# Logging
+
+## Best approach is centralized logging
+
+### How to perform this Log Aggregation?
+
+#### Managing Logs with Grafana, Loki & Promtail
+
+##### What is Grafana?
+
+- Grafana is an open-source data visualization and monitoring tool that allows you to analyze and visualize metrics from various sources like databases, logs, and cloud services
+- It is commonly used with time-series databases like Prometheus, InfluxDB, and Elasticsearch to monitor applications, infrastructure, and services in real-time
+- It can be easily installed using Docker or Docker Compose
+
+<img width="683" alt="image" src="https://github.com/user-attachments/assets/8a85eab8-9e5d-4ef7-b7ee-b6a51d725a64" />
+
+##### What is Loki?
+
+- Grafana Loki is a horizontally scalable, highly available and cost-effective log aggregation system.
+
+##### What is Promtail?
+
+- Promtail is a lightweight log agent that ships logs from your containers to Loki.
+
+```
+Grafana provides visualization of the log lines captured within Loki.
+Together Grafana, Loki, Promtail provides a powerful logging solution.
+```
 
 ## Grafana in a Spring Boot Microservices Example
 Let's assume we have a Spring Boot microservices architecture with the following services:
