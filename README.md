@@ -62,6 +62,101 @@ Grafana provides visualization of the log lines captured within Loki.
 Together Grafana, Loki, Promtail provides a powerful logging solution.
 ```
 
+<img width="666" alt="image" src="https://github.com/user-attachments/assets/2b0b80e1-1f2a-4e3a-a836-9aa75f1d2b28" />
+
+##### Note:
+```
+From Grafana Loki version 3.0 onwards, Promtail, which is responsible for scraping log lines,
+has been replaced with a new product called Alloy.
+```
+
+To collect logs and view your log data generally involves the following steps:
+
+<img width="602" alt="image" src="https://github.com/user-attachments/assets/7dbae75c-8387-4d8d-8c6b-0a1a67ef71f5" />
+
+##### Promtail reads logs from files or stdout and forwards to Loki
+
+```
+- cloud-native applications generate logs as events and send them to the standard
+  output, without being concerned about the processing or storage of those logs.
+
+- One advantage of treating logs as event streams and emitting them to stdout is that it
+  decouples the application from the log processing infrastructure.
+
+- The application can focus on its core functionality without being tied to a specific logging implementation
+  or storage solution.
+
+- The infrastructure, on the other hand, can handle the collection, aggregation, and storage of logs using
+  appropriate tools and services.
+
+- 15-Factor methodology recommends the same to treat logs as events streamed to the standard output and
+  not concern with how they are processed or stored.
+```
+
+<img width="688" alt="image" src="https://github.com/user-attachments/assets/a4afd04c-c255-467c-b5eb-33ac585ab988" />
+
+```
+- If you are using Docker or Kubernetes, Promtail can be configured to scrape container stdout logs. How?
+- To scrape container stdout logs with Promtail in Docker or Kubernetes, you don’t need to change the
+  application code—just configure Promtail to watch the right files.
+```
+
+**Below are configurations for both Docker and Kubernetes:**
+
+###### Promtail with Docker
+- Docker logs are stored as JSON files by default at:
+
+```
+/var/lib/docker/containers/<container-id>/<container-id>-json.log
+```
+
+###### Promtail Config for Docker
+- Here’s a promtail-config.yaml that scrapes Docker container logs:
+
+```yaml
+server:
+http_listen_port: 9080
+grpc_listen_port: 0
+
+positions:
+filename: /tmp/positions.yaml
+
+clients:
+- url: http://&lt;loki-host&gt;:3100/loki/api/v1/push
+
+scrape_configs:
+- job_name: docker
+static_configs:
+- targets:
+- localhost
+labels:
+job: docker
+__path__: /var/lib/docker/containers/*/*.log
+```
+
+###### Docker Run Example
+
+- Mount the Docker container logs and run Promtail:
+
+```bash
+docker run -d \
+--name=promtail \
+-v /var/log:/var/log \
+-v /var/lib/docker/containers:/var/lib/docker/containers:ro \
+-v /etc/promtail-config.yaml:/etc/promtail/promtail-config.yaml \
+grafana/promtail:latest \
+-config.file=/etc/promtail/promtail-config.yaml
+```
+
+
+
+
+
+
+
+
+
+
 ## Grafana in a Spring Boot Microservices Example
 Let's assume we have a Spring Boot microservices architecture with the following services:
 
