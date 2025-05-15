@@ -302,5 +302,41 @@ In the context of Prometheus and Grafana, **"scrape" means collecting or pulling
 
 <img width="379" alt="image" src="https://github.com/user-attachments/assets/1ab38e75-66ab-4051-bc0d-9ff32a24a57f" />
 
+## Summary - Spring Boot Actuator, Micrometer, Prometheus, and Grafana – Monitoring Workflow
 
+### **Spring Boot Actuator**
+- Provides built-in endpoints to monitor and manage a Spring Boot application.
+- Exposes application metrics, health status, and other operational information.
+- Requires adding the `spring-boot-starter-actuator` dependency to the project.
+
+### **Micrometer**
+- A library that provides a **vendor-neutral API** for collecting application metrics.
+- Integrates with various monitoring systems, including **Prometheus**.
+- Allows developers to instrument their code with metrics without vendor lock-in.
+- Requires adding the `micrometer-registry-prometheus` dependency.
+
+### **Prometheus**
+- An open-source **monitoring and alerting system**.
+- **Scrapes metrics** from applications at regular intervals.
+- Stores **time-series data** for analysis and visualization.
+- Configured to pull metrics from the actuator's `/actuator/prometheus` endpoint.
+
+### **Grafana**
+- An open-source platform for **data visualization and monitoring**.
+- Connects to various data sources, including **Prometheus**.
+- Creates dashboards to display metrics and visualize application performance.
+- Can import **pre-built dashboards** designed for Spring Boot applications.
+
+### **Workflow**
+- **Spring Boot Actuator** exposes metrics through its `/actuator/prometheus` endpoint.
+- **Micrometer** collects metrics from the application and formats them for **Prometheus**.
+- **Prometheus** scrapes the `/actuator/prometheus` endpoint to collect metrics data.
+- **Grafana** queries **Prometheus** to display metrics on customizable dashboards.
+
+<img width="607" alt="image" src="https://github.com/user-attachments/assets/1de336d6-ede6-426a-bf0d-7cad53c567b1" />
+
+<br><br>
+**Happy Coding,**
+<br>
+Pavan Uppuluri
 
