@@ -13,7 +13,12 @@ from variety of sources such as **metrics, logs and traces**
 
 3 pillars of observability are – Metrics, Logs, Traces
 
-<img width="610" alt="image" src="https://github.com/user-attachments/assets/569d8b78-716f-4e1e-b485-d449eb99e755" />
+| Type    | Description |
+|---------|-------------|
+| **Metrics** | Metrics are quantitative measurements of the health of a system. They can be used to track things like CPU usage, memory usage, and response times. |
+| **Logs**    | Logs are a record of events that occur in a system. They can be used to track things like errors, exceptions, and other unexpected events. |
+| **Traces**  | Traces are a record of the path that a request takes through a system. They can be used to track the performance of a request and to identify bottlenecks. |
+
 
 **What is Monitoring?**
 Monitoring in microservices involves checking the telemetry data available in the
@@ -30,7 +35,12 @@ It allows you to –
 
 In other words, Monitoring is about **collecting data** and Observability is about **understanding the data**.
 
-<img width="605" alt="image" src="https://github.com/user-attachments/assets/d1821747-28ba-4ac3-b8d2-d88c370418b4" />
+| Feature   | Monitoring                                  | Observability                                          |
+|-----------|---------------------------------------------|--------------------------------------------------------|
+| Purpose   | Identify and troubleshoot problems          | Understand the internal state of a system              |
+| Data      | Metrics, traces, and logs                   | Metrics, traces, logs, and other data sources          |
+| Goal      | Identify problems                           | Understand how a system works                          |
+| Approach  | Reactive                                    | Proactive                                              |
 
 
 # Logging
@@ -284,8 +294,13 @@ In the context of Prometheus and Grafana, **"scrape" means collecting or pulling
 <br>
 
 **Scraping in Prometheus**
-- Prometheus scrapes (fetches) metrics from configured endpoints (like a Spring Boot microservice).
+- Prometheus scrapes (fetches / pulls) metrics from configured endpoints (like a Spring Boot microservice).
+- It is a pull model, as opposed to a push model
 - It makes an HTTP request to the endpoint (e.g., /actuator/prometheus) and stores the collected data.
 - The frequency of scraping is defined in scrape_interval in prometheus.yml.
+- Metrics are stored in Prometheus and can be visualized using tools like Grafana.
+
+<img width="379" alt="image" src="https://github.com/user-attachments/assets/1ab38e75-66ab-4051-bc0d-9ff32a24a57f" />
+
 
 
