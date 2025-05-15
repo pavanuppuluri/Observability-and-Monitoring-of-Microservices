@@ -1,4 +1,37 @@
-# Observability-and-Monitoring-of-Microservices
+# Observability and Monitoring of Microservices
+
+- How do we debug a problem in microservices?
+- How do we monitor microservice performance?
+- How do we monitor microservices health & metrics?
+  
+**Observability & Monitoring** solve the challenge of identifying and resolving above problems in microservices architectures before they cause outages.
+
+**What is Observability?**
+
+Observability is the ability to understand the internal state of a system by observing its outputs. In the context of microservices, it is achieved by collecting and analyzing data
+from variety of sources such as **metrics, logs and traces**
+
+3 pillars of observability are – Metrics, Logs, Traces
+
+<img width="610" alt="image" src="https://github.com/user-attachments/assets/569d8b78-716f-4e1e-b485-d449eb99e755" />
+
+**What is Monitoring?**
+Monitoring in microservices involves checking the telemetry data available in the
+application and defining alerts for known failure states. This process collects and
+analyses data from a system to identify and troubleshoot problems, as well as track the
+individual microservices and the overall health of the microservices network
+
+It allows you to –
+- Identify and troubleshoot problems before they cause outages or other disruptions
+- Track the health of your microservice
+- Optimize microservice – You can identify areas where you can optimize your microservice to improve performance and reliability
+
+<img width="427" alt="image" src="https://github.com/user-attachments/assets/40fa28b3-a716-4431-8c28-de084f6290e5" />
+
+In other words, Monitoring is about **collecting data** and Observability is about **understanding the data**.
+
+<img width="605" alt="image" src="https://github.com/user-attachments/assets/d1821747-28ba-4ac3-b8d2-d88c370418b4" />
+
 
 Grafana is an open-source data visualization and monitoring tool that allows you to analyze and visualize metrics from various sources like databases, logs, and cloud services. It is commonly used with time-series databases like Prometheus, InfluxDB, and Elasticsearch to monitor applications, infrastructure, and services in real-time.
 
