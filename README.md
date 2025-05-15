@@ -336,7 +336,7 @@ In the context of Prometheus and Grafana, **"scrape" means collecting or pulling
 <img width="607" alt="image" src="https://github.com/user-attachments/assets/1de336d6-ede6-426a-bf0d-7cad53c567b1" />
 
 <br><br>
-**Happy Coding,**
+**Happy Monitoring,**
 <br>
 Pavan Uppuluri
 
